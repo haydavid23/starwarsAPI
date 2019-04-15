@@ -25,7 +25,7 @@ export class Navbar extends React.Component {
 						Dropdown button
 					</button>
 					<div
-						className="dropdown-menu"
+						className="dropdown-menu show"
 						aria-labelledby="dropdownMenuButton">
 						<Context.Consumer>
 							{({ store, actions }) => {
@@ -37,6 +37,13 @@ export class Navbar extends React.Component {
 												className="dropdown-item"
 												href="#">
 												{item}
+												<button
+													onClick={() =>
+														actions.deleteFav(index)
+													}
+													className="float-right  btn btn-danger">
+													<i className="fas fa-trash-alt" />
+												</button>
 											</a>
 										);
 									}

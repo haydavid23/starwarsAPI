@@ -1,42 +1,44 @@
+import React from "react";
+
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			characters: [
 				{
-					name: "assda",
-					gender: "asfd",
-					hairColor: "asdf",
-					eyeColor: "asdf"
+					name: "Han Solo",
+					gender: "Male",
+					hairColor: "Brown",
+					eyeColor: "Blue"
 				},
 				{
-					name: "asf",
-					gender: "ss",
-					hairColor: "dd",
-					eyeColor: "ff"
+					name: "Luke Skywalker",
+					gender: "Male",
+					hairColor: "Yellow",
+					eyeColor: "Brown"
 				},
 				{
-					name: "xx",
-					gender: "cc",
-					hairColor: "vv",
-					eyeColor: "tt"
+					name: "Princess Leila",
+					gender: "Female",
+					hairColor: "Black",
+					eyeColor: "Green"
 				},
 				{
-					name: "ghkjgh",
-					gender: "ghjk",
-					hairColor: "ghk",
-					eyeColor: "jgk"
+					name: "Gredo",
+					gender: "Male",
+					hairColor: "Green",
+					eyeColor: "Black"
 				},
 				{
-					name: "cvb",
-					gender: "xcb",
-					hairColor: "xcvb",
-					eyeColor: "xcvb"
+					name: "ChewBacca",
+					gender: "Male",
+					hairColor: "Brown",
+					eyeColor: "Hazel"
 				},
 				{
-					name: "yr",
-					gender: "rty",
-					hairColor: "ryt",
-					eyeColor: "rty"
+					name: "C-3PO",
+					gender: "Male",
+					hairColor: "black",
+					eyeColor: "Yellow"
 				}
 			],
 
@@ -55,12 +57,20 @@ const getState = ({ getStore, setStore }) => {
 				setStore({ demo: demo });
 			},
 
-			favorites: name => {
+			favorites: (name, index) => {
 				const store = getStore();
 
 				const demo = store.favoritesArray.push(name);
 
-				setStore({ favorites: demo });
+				setStore({ demo: demo });
+			},
+
+			deleteFav: i => {
+				const store = getStore();
+
+				const demo = store.favoritesArray.splice(i, 1);
+
+				setStore({ demo: demo });
 			}
 		}
 	};
