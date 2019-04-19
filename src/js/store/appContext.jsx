@@ -17,9 +17,27 @@ const injectStore = PassedComponent => {
 		}
 
 		componentDidMount() {
-			// this function is the equivalent to "window.onLoad"
-			// it only run once on the entire application lifetime
-			// you should do your ajax requests here
+			fetch("https://swapi.co/api/people/")
+				.then(response => response.json())
+
+				.then(data => {
+					let { store } = this.state;
+					store.characters = data.results;
+					this.setState({ store });
+					console.log(data);
+				})
+
+				.catch(error => console.log(error));
+
+			fetch("https://swapi.co/api/planets/")
+				.then(res => res.json())
+
+				.then(data => {
+					let { store } = this.state;
+					store.planets = data.results;
+					this.setState({ store });
+					console.log(data);
+				});
 		}
 
 		render() {

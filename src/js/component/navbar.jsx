@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 
 export class Navbar extends React.Component {
+	state = {
+		isOpen: false
+	};
+
+	toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
+
 	render() {
+		const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
 		return (
 			<nav className="navbar navbar-light bg-light mb-3">
 				<Link to="/">
@@ -14,18 +21,24 @@ export class Navbar extends React.Component {
 						/>
 					</span>
 				</Link>
-				<div className="dropdown">
-					<button
-						className="btn btn-secondary dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-toggle="dropdown"
-						aria-haspopup="true"
-						aria-expanded="false">
-						Dropdown button
-					</button>
+				<div className="dropdown" onClick={this.toggleOpen}>
+					<Context.Consumer>
+						{({ store, actions }) => {
+							return (
+								<button
+									className="btn btn-secondary dropdown-toggle"
+									type="button"
+									id="dropdownMenuButton"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false">
+									Favorites ({store.favoritesArray.length})
+								</button>
+							);
+						}}
+					</Context.Consumer>
 					<div
-						className="dropdown-menu show"
+						className={menuClass}
 						aria-labelledby="dropdownMenuButton">
 						<Context.Consumer>
 							{({ store, actions }) => {

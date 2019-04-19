@@ -3,44 +3,9 @@ import React from "react";
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			characters: [
-				{
-					name: "Han Solo",
-					gender: "Male",
-					hairColor: "Brown",
-					eyeColor: "Blue"
-				},
-				{
-					name: "Luke Skywalker",
-					gender: "Male",
-					hairColor: "Yellow",
-					eyeColor: "Brown"
-				},
-				{
-					name: "Princess Leila",
-					gender: "Female",
-					hairColor: "Black",
-					eyeColor: "Green"
-				},
-				{
-					name: "Gredo",
-					gender: "Male",
-					hairColor: "Green",
-					eyeColor: "Black"
-				},
-				{
-					name: "ChewBacca",
-					gender: "Male",
-					hairColor: "Brown",
-					eyeColor: "Hazel"
-				},
-				{
-					name: "C-3PO",
-					gender: "Male",
-					hairColor: "black",
-					eyeColor: "Yellow"
-				}
-			],
+			characters: [],
+
+			planets: [],
 
 			favoritesArray: []
 		},
@@ -57,12 +22,19 @@ const getState = ({ getStore, setStore }) => {
 				setStore({ demo: demo });
 			},
 
-			favorites: (name, index) => {
+			favorites: name => {
 				const store = getStore();
+				let demo = [];
+				//checks if name already exists in array
+				if (store.favoritesArray.includes(name)) {
+					//true leaves array the same
+					demo = store.favoritesArray;
+				} else {
+					//false pushes new favorite to array
+					demo = store.favoritesArray.push(name);
+				}
 
-				const demo = store.favoritesArray.push(name);
-
-				setStore({ demo: demo });
+				setStore({ favorites: demo });
 			},
 
 			deleteFav: i => {

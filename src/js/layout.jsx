@@ -4,6 +4,7 @@ import ScrollToTop from "./component/functional/scrollToTop.jsx";
 
 import { Home } from "./views/home.jsx";
 import { Single } from "./views/single.jsx";
+import { Single2 } from "./views/single2.jsx";
 import { LearnMore } from "./views/LearnMore.jsx";
 import injectStore from "./store/appContext.jsx";
 
@@ -21,6 +22,7 @@ export class Layout extends React.Component {
 							<Route exact path="/" component={Home} />
 							<Route path="/learnmore" component={LearnMore} />
 							<Route path="/single/:theid" component={Single} />
+							<Route path="/single2/:theid" component={Single2} />
 							<Route render={() => <h1>Not found!</h1>} />
 						</Switch>
 						<Footer />

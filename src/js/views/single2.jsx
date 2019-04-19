@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 
-export class Single extends React.Component {
+export class Single2 extends React.Component {
 	render() {
 		return (
 			<div>
@@ -13,12 +13,15 @@ export class Single extends React.Component {
 							<div>
 								<div className="row">
 									<div className="col">
-										<img src="https://tinyurl.com/y2ebxe7y" />
+										<img
+											className="w-75 p-3"
+											src="https://vignette.wikia.nocookie.net/starwars/images/1/11/Bespin-SWCT.png/revision/latest?cb=20181010054421"
+										/>
 									</div>
 									<div className="col">
 										<h1>
 											{
-												store.characters[
+												store.planets[
 													this.props.match.params
 														.theid
 												].name
@@ -26,7 +29,7 @@ export class Single extends React.Component {
 										</h1>
 										<h5>
 											{
-												store.characters[
+												store.planets[
 													this.props.match.params
 														.theid
 												].text
@@ -52,6 +55,6 @@ export class Single extends React.Component {
 	}
 }
 
-Single.propTypes = {
+Single2.propTypes = {
 	match: PropTypes.object
 };

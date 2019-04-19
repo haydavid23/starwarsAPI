@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 
-export default class Card extends React.Component {
+export default class Card2 extends React.Component {
 	constructor() {
 		super();
 	}
@@ -11,9 +11,9 @@ export default class Card extends React.Component {
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
-					return store.characters.map((item, index) => {
+					return store.planets.map((item, index) => {
 						return (
-							<div className="col h-100 p-3" key={index}>
+							<div className="col h-100" key={index}>
 								<div className="card h-100">
 									<img
 										src="http://placehold.it/500x325"
@@ -25,19 +25,19 @@ export default class Card extends React.Component {
 											{item.name}
 										</h5>
 										<p className="card-text">
-											Gender:
-											{" " + item.gender}
+											Populatuon:
+											{" " + item.population}
 											<br />
 											<br />
-											Hair Color:
-											{" " + item.hairColor}
+											Climate:
+											{" " + item.climate}
 											<br />
 											<br />
-											Eye Color:
-											{" " + item.eyeColor}
+											Orbital Period:
+											{" " + item.orbital_period}
 										</p>
 
-										<Link to={"/single/" + index}>
+										<Link to={"/single2/" + index}>
 											<a className="btn btn-outline-primary">
 												Learn More
 											</a>
