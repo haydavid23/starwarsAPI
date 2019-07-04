@@ -5,7 +5,7 @@ Starwars cards are fetched from an external API.
 # Technologies Used
 HTML, CSS, Bootstrap, Javascript, API (fetching).
 
-Live Demo: https://media.giphy.com/media/h8OZcQdTsehkmhY43S/giphy.mp4
+![demo](https://media.giphy.com/media/Y2aNigiMa0GRpFGFMG/giphy.gif)
 
 
 
